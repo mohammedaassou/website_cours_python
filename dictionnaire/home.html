@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Python Learning</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; margin: 20px; }
+        .container { max-width: 800px; margin: auto; padding: 20px; border-radius: 10px; background: #f9f9f9; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); }
+        h1 { color: #0056b3; }
+        .links { margin: 20px 0; }
+        .links a { display: block; margin: 10px 0; padding: 10px; background: #007bff; color: white; text-decoration: none; border-radius: 5px; }
+        .links a:hover { background: #0056b3; }
+        .sub-links, .solution-links { display: none; margin-top: 10px; }
+        .sub-links a { background: #ff9800; }
+        .solution-links a { background: #28a745; }
+    </style>
+    <script>
+        function toggleDisplay(id) {
+            var element = document.getElementById(id);
+            element.style.display = (element.style.display === "none" || element.style.display === "") ? "block" : "none";
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg" alt="Python Logo" width="150">
+        <h1>Bienvenue sur l'apprentissage Python</h1>
+        <div class="links">
+            <a href="cours/index.html">Cours sur les Dictionnaires</a>
+            <a href="#" onclick="toggleDisplay('exercises')">Exercices</a>
+            <div id="exercises" class="sub-links">
+                <a href="exercice/index1.html">Exercice 1</a>
+                <a href="exercice/index2.html">Exercice 2</a>
+                <a href="exercice/index3.html">Exercice 3</a>
+            </div>
+            <a href="#" onclick="toggleDisplay('solutions')">Solutions</a>
+            <div id="solutions" class="solution-links">
+                <a href="exercice/index1.html">Solution 1</a>
+                <a href="exercice/sol2.html">Solution 2</a>
+                <a href="exercice/sol3.html">Solution 3</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cours sur les Dictionnaires en Python</title>
+    <style>
+        body { font-family: Arial, sans-serif; line-height: 1.6; margin: 0; padding: 0; background-color: #f4f4f4; }
+        .container {
+            width: 80%;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        h1, h2 {
+            color: #0056b3;
+        }
+        code { background: #f4f4f4; padding: 3px; border-radius: 5px; }
+        pre { background: #eee; padding: 10px; border-radius: 5px; }
+        .output { background: #d4edda; padding: 10px; border-left: 5px solid #28a745; margin-top: 5px; }
+        .exercise { background: #fff3cd; padding: 10px; border-left: 5px solid #ff9800; margin-top: 10px; }
+        .solution { display: none; margin-top: 10px; }
+        button { background: #007bff; color: white; border: none; padding: 10px; cursor: pointer; border-radius: 5px; }
+        button:hover { background: #0056b3; }
+    </style>
+    <script>
+        function toggleSolution(id) {
+            var solution = document.getElementById(id);
+            if (solution.style.display === "none") {
+                solution.style.display = "block";
+            } else {
+                solution.style.display = "none";
+            }
+        }
+    </script>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Cours sur les Dictionnaires en Python</h1>
+
+        <h2>Introduction</h2>
+        <p>Les dictionnaires en Python permettent de stocker des paires clé-valeur.</p>
+
+        <h2>Création d'un Dictionnaire</h2>
+        <pre><code>mon_dictionnaire = {}
+etudiant = {"nom": "Alice", "age": 22, "matiere": "Informatique"}
+print(etudiant)</code></pre>
+        <div class="output">{'nom': 'Alice', 'age': 22, 'matiere': 'Informatique'}</div>
+
+        <h2>Accéder aux Éléments</h2>
+        <pre><code>print(etudiant["nom"])  # Affiche "Alice"
+print(etudiant.get("age"))  # Affiche 22</code></pre>
+        <div class="output">Alice</div>
+        <div class="output">22</div>
+
+        <h2>Modifier un Dictionnaire</h2>
+        <pre><code>etudiant["age"] = 23
+etudiant["adresse"] = "Paris"
+print(etudiant)</code></pre>
+        <div class="output">{'nom': 'Alice', 'age': 23, 'matiere': 'Informatique', 'adresse': 'Paris'}</div>
+
+        <h2>Supprimer des Éléments</h2>
+        <pre><code>del etudiant["adresse"]
+print(etudiant)</code></pre>
+        <div class="output">{'nom': 'Alice', 'age': 23, 'matiere': 'Informatique'}</div>
+
+        <h2>Parcourir un Dictionnaire</h2>
+        <pre><code>for cle, valeur in etudiant.items():
+    print(f"{cle}: {valeur}")</code></pre>
+        <div class="output">nom: Alice</div>
+        <div class="output">age: 23</div>
+        <div class="output">matiere: Informatique</div>
+
+        <h2>Opérations Utiles</h2>
+        <pre><code>print(len(etudiant))  # Nombre d'éléments
+print("nom" in etudiant)  # Vérifier une clé
+etudiant.clear()  # Vider le dictionnaire
+print(etudiant)</code></pre>
+        <div class="output">3</div>
+        <div class="output">True</div>
+        <div class="output">{}</div>
+
+        <h2>Les Méthodes : <code>items()</code>, <code>keys()</code>, <code>values()</code></h2>
+
+        <h3>1. <code>items()</code> - Retourne une liste de tuples contenant les paires clé-valeur</h3>
+        <pre><code>etudiant = {"nom": "Alice", "age": 22, "matiere": "Informatique"}
+for cle, valeur in etudiant.items():
+    print(cle, valeur)</code></pre>
+        <div class="output">
+            nom Alice<br>
+            age 22<br>
+            matiere Informatique
+        </div>
+        <p><code>items()</code> permet d'itérer sur un dictionnaire en retournant chaque paire clé-valeur sous forme de tuple.</p>
+
+        <h3>2. <code>keys()</code> - Retourne une vue des clés du dictionnaire</h3>
+        <pre><code>for cle in etudiant.keys():
+    print(cle)</code></pre>
+        <div class="output">
+            nom<br>
+            age<br>
+            matiere
+        </div>
+        <p><code>keys()</code> permet d'obtenir une vue des clés présentes dans le dictionnaire, idéale pour vérifier les clés existantes.</p>
+
+        <h3>3. <code>values()</code> - Retourne une vue des valeurs du dictionnaire</h3>
+        <pre><code>for valeur in etudiant.values():
+    print(valeur)</code></pre>
+        <div class="output">
+            Alice<br>
+            22<br>
+            Informatique
+        </div>
+        <p><code>values()</code> permet d'obtenir une vue des valeurs présentes dans le dictionnaire, utile lorsque vous souhaitez manipuler uniquement les valeurs.</p>
+
+        <h2>Exercices Pratiques</h2>
+
+        <div class="exercise">
+            <h3>Exercice 1 : Informations sur une personne</h3>
+            <p>Créez un dictionnaire nommé <code>personne</code> contenant les informations suivantes :</p>
+            <ul>
+                <li><strong>Nom</strong> : "Jean"</li>
+                <li><strong>Âge</strong> : 30</li>
+                <li><strong>Profession</strong> : "Développeur"</li>
+            </ul>
+            <p>Ajoutez une clé <code>"ville"</code> avec la valeur "Paris". Ensuite, affichez toutes les informations de la personne en parcourant le dictionnaire.</p>
+            
+            <button onclick="toggleSolution('solution1')">Voir la solution</button>
+            <div id="solution1" class="solution">
+                <pre><code>personne = {
+    "nom": "Jean",
+    "age": 30,
+    "profession": "Développeur"
+}
+personne["ville"] = "Paris"
+
+for cle, valeur in personne.items():
+    print(f"{cle}: {valeur}")</code></pre>
+                <div class="output">
+                    nom: Jean<br>
+                    age: 30<br>
+                    profession: Développeur<br>
+                    ville: Paris
+                </div>
+            </div>
+        </div>
+
+        <div class="exercise">
+            <h3>Exercice 2 : Ajouter une couleur préférée</h3>
+            <p>Créez un dictionnaire nommé <code>infos</code> contenant :</p>
+            <ul>
+                <li><strong>Nom</strong> : "Sophie"</li>
+                <li><strong>Âge</strong> : 28</li>
+            </ul>
+            <p>Ajoutez une clé <code>"couleur"</code> avec la valeur "Bleu", puis affichez le dictionnaire.</p>
+
+            <button onclick="toggleSolution('solution2')">Voir la solution</button>
+            <div id="solution2" class="solution">
+                <pre><code>infos = {
+    "nom": "Sophie",
+    "age": 28
+}
+infos["couleur"] = "Bleu"
+
+print(infos)</code></pre>
+                <div class="output">
+                    {'nom': 'Sophie', 'age': 28, 'couleur': 'Bleu'}
+                </div>
+            </div>
+        </div>
+
+        <h2>Conclusion</h2>
+        <p>Les dictionnaires sont essentiels en Python pour manipuler des données efficacement. N'hésitez pas à expérimenter avec ces exercices !</p>
+    </div>
+
+</body>
+</html>

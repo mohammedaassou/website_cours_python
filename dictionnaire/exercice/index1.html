@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercices Python</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f6f9;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            border-radius: 10px;
+            background: #ffffff;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #0056b3;
+            font-size: 36px;
+            margin-bottom: 30px;
+        }
+        .exercise {
+            background-color: #f9f9f9;
+            margin: 20px 0;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        .exercise h2 {
+            color: #007bff;
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+        .code {
+            background-color: #2d2d2d;
+            color: #f5f5f5;
+            padding: 15px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-family: 'Courier New', Courier, monospace;
+            overflow-x: auto;
+            margin-bottom: 10px;
+        }
+        button {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .output {
+            background-color: #e9f7ef;
+            padding: 10px;
+            border-radius: 5px;
+            color: #28a745;
+            display: none;
+            margin-top: 10px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .details {
+            background-color: #f1f1f1;
+            padding: 10px;
+            border-radius: 5px;
+            color: #333;
+            display: none;
+            margin-top: 10px;
+            font-size: 16px;
+            text-align: left;
+        }
+        .calculation {
+            color: #d9534f;
+            font-weight: bold;
+        }
+    </style>
+    <script>
+        function toggleOutput(id) {
+            var element = document.getElementById(id);
+            element.style.display = (element.style.display === "none" || element.style.display === "") ? "block" : "none";
+        }
+
+        function toggleDetails(id) {
+            var element = document.getElementById(id);
+            element.style.display = (element.style.display === "none" || element.style.display === "") ? "block" : "none";
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>Exercices Python</h1>
+        
+        <!-- Exercise 1 -->
+        <div class="exercise">
+            <h2>Exercice 1</h2>
+            <div class="code">
+                for i in range(1, 21):<br>
+                &nbsp;&nbsp;&nbsp;if i % 2 == 0:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print(i)
+            </div>
+            <button onclick="toggleOutput('output1')">Show Output</button>
+            <div id="output1" class="output">
+                2<br>4<br>6<br>8<br>10<br>12<br>14<br>16<br>18<br>20
+            </div>
+            <button onclick="toggleDetails('details1')">Show Details</button>
+            <div id="details1" class="details">
+                Iteration 1: i = 1, <span class="calculation">1 % 2 = 1</span> (not divisible by 2)<br>
+                Iteration 2: i = 2, <span class="calculation">2 % 2 = 0</span> (divisible by 2), print 2<br>
+                Iteration 3: i = 3, <span class="calculation">3 % 2 = 1</span> (not divisible by 2)<br>
+                Iteration 4: i = 4, <span class="calculation">4 % 2 = 0</span> (divisible by 2), print 4<br>
+                Iteration 5: i = 5, <span class="calculation">5 % 2 = 1</span> (not divisible by 2)<br>
+                Iteration 6: i = 6, <span class="calculation">6 % 2 = 0</span> (divisible by 2), print 6<br>
+                Iteration 7: i = 7, <span class="calculation">7 % 2 = 1</span> (not divisible by 2)<br>
+                Iteration 8: i = 8, <span class="calculation">8 % 2 = 0</span> (divisible by 2), print 8<br>
+                Iteration 9: i = 9, <span class="calculation">9 % 2 = 1</span> (not divisible by 2)<br>
+                Iteration 10: i = 10, <span class="calculation">10 % 2 = 0</span> (divisible by 2), print 10<br>
+                Iteration 11: i = 11, <span class="calculation">11 % 2 = 1</span> (not divisible by 2)<br>
+                Iteration 12: i = 12, <span class="calculation">12 % 2 = 0</span> (divisible by 2), print 12<br>
+                Iteration 13: i = 13, <span class="calculation">13 % 2 = 1</span> (not divisible by 2)<br>
+                Iteration 14: i = 14, <span class="calculation">14 % 2 = 0</span> (divisible by 2), print 14<br>
+                Iteration 15: i = 15, <span class="calculation">15 % 2 = 1</span> (not divisible by 2)<br>
+                Iteration 16: i = 16, <span class="calculation">16 % 2 = 0</span> (divisible by 2), print 16<br>
+                Iteration 17: i = 17, <span class="calculation">17 % 2 = 1</span> (not divisible by 2)<br>
+                Iteration 18: i = 18, <span class="calculation">18 % 2 = 0</span> (divisible by 2), print 18<br>
+                Iteration 19: i = 19, <span class="calculation">19 % 2 = 1</span> (not divisible by 2)<br>
+                Iteration 20: i = 20, <span class="calculation">20 % 2 = 0</span> (divisible by 2), print 20
+            </div>
+        </div>
+
+        <!-- Exercise 2 -->
+        <div class="exercise">
+            <h2>Exercice 2: </h2>
+            <div class="code">
+                somme = 0<br>
+                for i in range(1, 11):<br>
+                &nbsp;&nbsp;&nbsp;somme += i<br>
+                print("Somme :", somme)
+            </div>
+            <button onclick="toggleOutput('output2')">Show Output</button>
+            <div id="output2" class="output">
+                Somme : 55
+            </div>
+            <button onclick="toggleDetails('details2')">Show Details</button>
+            <div id="details2" class="details">
+                Iteration 1: somme = 0 + 1 = 1<br>
+                Iteration 2: somme = 1 + 2 = 3<br>
+                Iteration 3: somme = 3 + 3 = 6<br>
+                Iteration 4: somme = 6 + 4 = 10<br>
+                Iteration 5: somme = 10 + 5 = 15<br>
+                Iteration 6: somme = 15 + 6 = 21<br>
+                Iteration 7: somme = 21 + 7 = 28<br>
+                Iteration 8: somme = 28 + 8 = 36<br>
+                Iteration 9: somme = 36 + 9 = 45<br>
+                Iteration 10: somme = 45 + 10 = 55
+            </div>
+        </div>
+
+        <!-- Exercise 3 -->
+        <div class="exercise">
+            <h2>Exercice 3: Somme des multiples de 3 et 5 jusqu'à 20</h2>
+            <div class="code">
+                total = 0<br>
+                for i in range(1, 20):<br>
+                &nbsp;&nbsp;&nbsp;if i % 3 == 0 or i % 5 == 0:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;total += i<br>
+                print(total)
+            </div>
+            <button onclick="toggleOutput('output3')">Show Output</button>
+            <div id="output3" class="output">
+                78
+            </div>
+            <button onclick="toggleDetails('details3')">Show Details</button>
+            <div id="details3" class="details">
+                Iteration 1: i = 1, <span class="calculation">1 % 3 = 1</span> (not divisible by 3 or 5)<br>
+                Iteration 2: i = 2, <span class="calculation">2 % 3 = 2</span> (not divisible by 3 or 5)<br>
+                Iteration 3: i = 3, <span class="calculation">3 % 3 = 0</span> (divisible by 3), total += 3 = 3<br>
+                Iteration 4: i = 4, <span class="calculation">4 % 3 = 1</span> (not divisible by 3 or 5)<br>
+                Iteration 5: i = 5, <span class="calculation">5 % 5 = 0</span> (divisible by 5), total += 5 = 8<br>
+                Iteration 6: i = 6, <span class="calculation">6 % 3 = 0</span> (divisible by 3), total += 6 = 14<br>
+                Iteration 7: i = 7, <span class="calculation">7 % 3 = 1</span> (not divisible by 3 or 5)<br>
+                Iteration 8: i = 8, <span class="calculation">8 % 3 = 2</span> (not divisible by 3 or 5)<br>
+                Iteration 9: i = 9, <span class="calculation">9 % 3 = 0</span> (divisible by 3), total += 9 = 23<br>
+                Iteration 10: i = 10, <span class="calculation">10 % 5 = 0</span> (divisible by 5), total += 10 = 33<br>
+                Iteration 11: i = 11, <span class="calculation">11 % 3 = 2</span> (not divisible by 3 or 5)<br>
+                Iteration 12: i = 12, <span class="calculation">12 % 3 = 0</span> (divisible by 3), total += 12 = 45<br>
+                Iteration 13: i = 13, <span class="calculation">13 % 3 = 1</span> (not divisible by 3 or 5)<br>
+                Iteration 14: i = 14, <span class="calculation">14 % 3 = 2</span> (not divisible by 3 or 5)<br>
+                Iteration 15: i = 15, <span class="calculation">15 % 3 = 0</span> (divisible by 3), total += 15 = 60<br>
+                Iteration 16: i = 16, <span class="calculation">16 % 3 = 1</span> (not divisible by 3 or 5)<br>
+                Iteration 17: i = 17, <span class="calculation">17 % 3 = 2</span> (not divisible by 3 or 5)<br>
+                Iteration 18: i = 18, <span class="calculation">18 % 3 = 0</span> (divisible by 3), total += 18 = 78
+            </div>
+        </div>
+
+
+        <!-- Exercise 4 -->
+<div class="exercise">
+   <h2>Exercice 4:</h2>
+   <div class="code">
+       n = 1<br>
+       while n <= 20:<br>
+       &nbsp;&nbsp;&nbsp;if n % 2 == 0:<br>
+       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print(n)<br>
+       &nbsp;&nbsp;&nbsp;n += 1
+   </div>
+   <button onclick="toggleOutput('output4')">Show Output</button>
+   <div id="output4" class="output">
+       2<br>4<br>6<br>8<br>10<br>12<br>14<br>16<br>18<br>20
+   </div>
+   <button onclick="toggleDetails('details4')">Show Details</button>
+   <div id="details4" class="details">
+       Iteration 1: n = 1, <span class="calculation">1 % 2 = 1</span> (not divisible by 2)<br>
+       Iteration 2: n = 2, <span class="calculation">2 % 2 = 0</span> (divisible by 2), print 2<br>
+       Iteration 3: n = 3, <span class="calculation">3 % 2 = 1</span> (not divisible by 2)<br>
+       Iteration 4: n = 4, <span class="calculation">4 % 2 = 0</span> (divisible by 2), print 4<br>
+       Iteration 5: n = 5, <span class="calculation">5 % 2 = 1</span> (not divisible by 2)<br>
+       Iteration 6: n = 6, <span class="calculation">6 % 2 = 0</span> (divisible by 2), print 6<br>
+       Iteration 7: n = 7, <span class="calculation">7 % 2 = 1</span> (not divisible by 2)<br>
+       Iteration 8: n = 8, <span class="calculation">8 % 2 = 0</span> (divisible by 2), print 8<br>
+       Iteration 9: n = 9, <span class="calculation">9 % 2 = 1</span> (not divisible by 2)<br>
+       Iteration 10: n = 10, <span class="calculation">10 % 2 = 0</span> (divisible by 2), print 10<br>
+       Iteration 11: n = 11, <span class="calculation">11 % 2 = 1</span> (not divisible by 2)<br>
+       Iteration 12: n = 12, <span class="calculation">12 % 2 = 0</span> (divisible by 2), print 12<br>
+       Iteration 13: n = 13, <span class="calculation">13 % 2 = 1</span> (not divisible by 2)<br>
+       Iteration 14: n = 14, <span class="calculation">14 % 2 = 0</span> (divisible by 2), print 14<br>
+       Iteration 15: n = 15, <span class="calculation">15 % 2 = 1</span> (not divisible by 2)<br>
+       Iteration 16: n = 16, <span class="calculation">16 % 2 = 0</span> (divisible by 2), print 16<br>
+       Iteration 17: n = 17, <span class="calculation">17 % 2 = 1</span> (not divisible by 2)<br>
+       Iteration 18: n = 18, <span class="calculation">18 % 2 = 0</span> (divisible by 2), print 18<br>
+       Iteration 19: n = 19, <span class="calculation">19 % 2 = 1</span> (not divisible by 2)<br>
+       Iteration 20: n = 20, <span class="calculation">20 % 2 = 0</span> (divisible by 2), print 20
+   </div>
+</div>
+
+<!-- Exercise 5 -->
+<div class="exercise">
+   <h2>Exercice 5: </h2>
+   <div class="code">
+       n = 10<br>
+       while n > 0:<br>
+       &nbsp;&nbsp;&nbsp;if n % 2 == 0:<br>
+       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print(n, end=" ")<br>
+       &nbsp;&nbsp;&nbsp;n -= 1
+   </div>
+   <button onclick="toggleOutput('output5')">Show Output</button>
+   <div id="output5" class="output">
+       10 8 6 4 2
+   </div>
+   <button onclick="toggleDetails('details5')">Show Details</button>
+   <div id="details5" class="details">
+       Iteration 1: n = 10, <span class="calculation">10 % 2 = 0</span> (divisible by 2), print 10<br>
+       Iteration 2: n = 9, <span class="calculation">9 % 2 = 1</span> (not divisible by 2)<br>
+       Iteration 3: n = 8, <span class="calculation">8 % 2 = 0</span> (divisible by 2), print 8<br>
+       Iteration 4: n = 7, <span class="calculation">7 % 2 = 1</span> (not divisible by 2)<br>
+       Iteration 5: n = 6, <span class="calculation">6 % 2 = 0</span> (divisible by 2), print 6<br>
+       Iteration 6: n = 5, <span class="calculation">5 % 2 = 1</span> (not divisible by 2)<br>
+       Iteration 7: n = 4, <span class="calculation">4 % 2 = 0</span> (divisible by 2), print 4<br>
+       Iteration 8: n = 3, <span class="calculation">3 % 2 = 1</span> (not divisible by 2)<br>
+       Iteration 9: n = 2, <span class="calculation">2 % 2 = 0</span> (divisible by 2), print 2
+   </div>
+</div>
+
+<!-- Exercise 6 -->
+<div class="exercise">
+   <h2>Exercice 6: </h2>
+   <div class="code">
+       n = 1<br>
+       while n < 30:<br>
+       &nbsp;&nbsp;&nbsp;if n % 5 == 0:<br>
+       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print(n)<br>
+       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break<br>
+       &nbsp;&nbsp;&nbsp;print(n)<br>
+       &nbsp;&nbsp;&nbsp;n += 1
+   </div>
+   <button onclick="toggleOutput('output6')">Show Output</button>
+   <div id="output6" class="output">
+       1<br>2<br>3<br>4<br>5
+   </div>
+   <button onclick="toggleDetails('details6')">Show Details</button>
+   <div id="details6" class="details">
+       Iteration 1: n = 1, <span class="calculation">1 % 5 = 1</span> (not divisible by 5)<br>
+       Iteration 2: n = 2, <span class="calculation">2 % 5 = 2</span> (not divisible by 5)<br>
+       Iteration 3: n = 3, <span class="calculation">3 % 5 = 3</span> (not divisible by 5)<br>
+       Iteration 4: n = 4, <span class="calculation">4 % 5 = 4</span> (not divisible by 5)<br>
+       Iteration 5: n = 5, <span class="calculation">5 % 5 = 0</span> (divisible by 5), print 5, break loop
+   </div>
+</div>
+
+<!-- Exercise 7 -->
+<div class="exercise">
+   <h2>Exercice 7: </h2>
+   <div class="code">
+       liste = [1, 2, 3, 4, 5]<br>
+       inverse = []<br>
+       for i in range(len(liste) - 1, -1, -1):<br>
+       &nbsp;&nbsp;&nbsp;inverse.append(liste[i])<br>
+       print(inverse)
+   </div>
+   <button onclick="toggleOutput('output7')">Show Output</button>
+   <div id="output7" class="output">
+       [5, 4, 3, 2, 1]
+   </div>
+   <button onclick="toggleDetails('details7')">Show Details</button>
+   <div id="details7" class="details">
+       Iteration 1: i = 4, inverse = [5]<br>
+       Iteration 2: i = 3, inverse = [5, 4]<br>
+       Iteration 3: i = 2, inverse = [5, 4, 3]<br>
+       Iteration 4: i = 1, inverse = [5, 4, 3, 2]<br>
+       Iteration 5: i = 0, inverse = [5, 4, 3, 2, 1]
+   </div>
+</div>
+<!-- Exercise 8 -->
+<div class="exercise">
+   <h2>Exercice 8: </h2>
+   <div class="code">
+       liste = [2, 4, 3, -4, 1, 5, 1, 6, 7, 1]<br>
+       element = 1<br>
+       compteur = 0<br>
+       for item in liste:<br>
+       &nbsp;&nbsp;&nbsp;if item == element:<br>
+       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;compteur += 1<br>
+       print(compteur)
+   </div>
+   <button onclick="toggleOutput('output8')">Show Output</button>
+   <div id="output8" class="output">
+       3
+   </div>
+   <button onclick="toggleDetails('details8')">Show Details</button>
+   <div id="details8" class="details">
+       Iteration 1: item = 2, compteur = 0<br>
+       Iteration 2: item = 4, compteur = 0<br>
+       Iteration 3: item = 3, compteur = 0<br>
+       Iteration 4: item = -4, compteur = 0<br>
+       Iteration 5: item = 1, compteur = 1<br>
+       Iteration 6: item = 5, compteur = 1<br>
+       Iteration 7: item = 1, compteur = 2<br>
+       Iteration 8: item = 6, compteur = 2<br>
+       Iteration 9: item = 7, compteur = 2<br>
+       Iteration 10: item = 1, compteur = 3
+   </div>
+</div>
+
+
+    </div>
+</body>
+</html>

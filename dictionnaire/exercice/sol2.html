@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python Exercises</title>
+    <style>
+      body {
+          font-family: Arial, sans-serif;
+          margin: 0;
+          padding: 0;
+          background-color: #f9f9f9;
+          color: #333;
+          display: flex;
+          justify-content: center;
+          align-items: flex-start;
+          height: 100vh;
+      }
+      .container {
+          width: 80%;
+          max-width: 800px;
+          padding: 20px;
+          background-color: white;
+          box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+          border-radius: 8px;
+          overflow-y: auto;
+          height: 90vh;
+      }
+      h1, h2 {
+          color: #0056b3;
+      }
+      code {
+          background-color: #eef;
+          padding: 2px 4px;
+          border-radius: 4px;
+          font-family: 'Source Code Pro', monospace; /* Change font */
+      }
+      pre {
+          background-color: #eef;
+          padding: 10px;
+          border-radius: 4px;
+          overflow-x: auto;
+          white-space: pre-wrap; /* Ensure long lines wrap */
+          font-family: 'Source Code Pro', monospace; /* Change font */
+      }
+      section {
+          margin-bottom: 20px;
+      }
+      button {
+          background: #007bff;
+          color: white;
+          border: none;
+          padding: 8px;
+          cursor: pointer;
+          border-radius: 5px;
+      }
+      button:hover {
+          background: #0056b3;
+      }
+      .solution {
+          display: none;
+      }
+  </style>
+  
+  <!-- Add this link to include the Source Code Pro font from Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet">
+  
+  
+  
+    <script>
+        function toggleSolution(id) {
+            var solution = document.getElementById(id);
+            if (solution.style.display === "none" || solution.style.display === "") {
+                solution.style.display = "block";
+            } else {
+                solution.style.display = "none";
+            }
+        }
+    </script>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Python Exercises</h1>
+
+        <section>
+            <h2>Exercise 1: Gestion des stocks</h2>
+            <p>Vous gérez un magasin et vous devez suivre les stocks des produits. Chaque produit a les informations suivantes :</p>
+            <ul>
+                <li><b>Nom</b></li>
+                <li><b>Quantité en stock</b></li>
+                <li><b>Prix par unité</b></li>
+            </ul>
+            <p>Instructions :</p>
+            <ol>
+                <li>Créez une fonction <code>initialiser_stock()</code> qui retourne un dictionnaire contenant les produits suivants :</li>
+                <pre>{
+"Pommes": {"quantite": 100, "prix": 2},
+"Bananes": {"quantite": 30, "prix": 3},
+"Oranges": {"quantite": 50, "prix": 1.5}
+}</pre>
+                <li>Créez une fonction <code>ajouter_produit(stock, produit, quantite, prix)</code> qui permet d'ajouter un nouveau produit ou d'ajouter à la quantité existante pour un produit existant.</li>
+                <li>Créez une fonction <code>valeur_totale_stock(stock)</code> qui calcule la valeur totale du stock (quantité × prix pour chaque produit).</li>
+            </ol>
+            <p><strong>Correction:</strong></p>
+            <button onclick="toggleSolution('solution1')">Voir la solution</button>
+            <div id="solution1" class="solution">
+                <pre><code># Fonction pour initialiser le stock
+
+def initialiser_stock():
+    stock = {
+        "Pommes": {"quantite": 100, "prix": 2},
+        "Bananes": {"quantite": 30, "prix": 3},
+        "Oranges": {"quantite": 50, "prix": 1.5}
+    }
+    return stock
+
+# Fonction pour ajouter un produit au stock
+
+def ajouter_produit(stock, produit, quantite, prix):
+        stock[produit] = {"quantite": quantite, "prix": prix}
+
+# Fonction pour calculer la valeur totale du stock
+
+def valeur_totale_stock(stock):
+    total = 0
+    for produit in stock:
+        total += stock[produit]["quantite"] * stock[produit]["prix"]
+    return total</code></pre>
+            </div>
+        </section>
+
+        <section>
+            <h2>Exercise 2: Analyse des étudiants</h2>
+            <p>Vous avez une liste des notes sous la forme d'un dictionnaire. Chaque étudiant est associé à une liste de ses notes :</p>
+            <pre>{
+"Ali": [12, 15, 18],
+"Sara": [16, 17, 16],
+"Samir": [10, 9, 14]
+}</pre>
+            <p>Instructions :</p>
+            <ol>
+                <li>Créez une fonction <code>calculer_moyenne(etudiants, nom)</code> qui prend en entrée un dictionnaire d'étudiants et le nom d'un étudiant, et retourne sa moyenne.</li>
+                <li>Créez une fonction <code>meilleure_moyenne(etudiants)</code> qui retourne le nom de l'étudiant avec la meilleure moyenne.</li>
+            </ol>
+            <p><strong>Correction:</strong></p>
+            <button onclick="toggleSolution('solution2')">Voir la solution</button>
+            <div id="solution2" class="solution">
+                <pre><code># Fonction pour calculer la moyenne d'un étudiant
+
+def calculer_moyenne(etudiants, nom):
+        moyenne = sum(etudiants[nom]) / len(etudiants[nom])
+        return moyenne
+    
+
+# Fonction pour trouver l'étudiant avec la meilleure moyenne
+
+def meilleure_moyenne(etudiants):
+    meilleur = ""
+    meilleureNote = 0
+    for nom, notes in etudiants.items():
+        moyenne = sum(notes) / len(notes)
+        if moyenne > meilleureNote:
+            meilleureNote = moyenne
+            meilleur = nom
+    return meilleur , meilleureNote</code></pre>
+            </div>
+        </section>
+
+        <section>
+            <h2>Exercise 3: Gestion des commandes</h2>
+            <p>Vous gérez une application de livraison. Les commandes des clients sont stockées dans un dictionnaire où chaque client a une liste de commandes :</p>
+            <pre>{
+"Client1": ["Pizza", "Salade"],
+"Client2": ["Burger"],
+"Client3": ["Sushi", "Soupe", "Salade"]
+}</pre>
+            <p>Instructions :</p>
+            <ol>
+                <li>Créez une fonction <code>initialiser_commandes()</code> qui retourne un dictionnaire contenant les commandes données ci-dessus.</li>
+                <li>Créez une fonction <code>ajouter_commande(commandes, client, commande)</code> qui ajoute une commande à un client existant. Si le client n'existe pas, ajoutez-le au dictionnaire.</li>
+                <li>Créez une fonction <code>statistiques_commandes(commandes)</code> qui retourne un dictionnaire contenant :</li>
+                <ul>
+                    <li>Le nombre total de commandes.</li>
+                    <li>Le client ayant passé le plus de commandes.</li>
+                </ul>
+            </ol>
+            <p><strong>Correction:</strong></p>
+            <button onclick="toggleSolution('solution3')">Voir la solution</button>
+            <div id="solution3" class="solution">
+                <pre><code># Fonction pour initialiser les commandes
+
+def initialiser_commandes():
+    return {
+        "Client1": ["Pizza", "Salade"],
+        "Client2": ["Burger"],
+        "Client3": ["Sushi", "Soupe", "Salade"]
+    }
+
+# Fonction pour ajouter une commande à un client
+
+def ajouter_commande(commandes, client, commande):
+    if client in commandes:
+        commandes[client].append(commande)
+    else:
+        commandes[client] = [commande]
+
+# Fonction pour obtenir les statistiques des commandes
+
+def statistiques_commandes(commandes):
+    total_commandes = 0
+    client_max = ""
+    max_commandes = 0
+    
+    for client, liste in commandes.items():
+        nombre_commandes = len(liste)
+        total_commandes += nombre_commandes
+        if nombre_commandes > max_commandes:
+            max_commandes = nombre_commandes
+            client_max = client
+    
+    return {"total": total_commandes, "plus_de_commandes": client_max}</code></pre>
+            </div>
+        </section>
+    </div>
+
+</body>
+</html>

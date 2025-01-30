@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python Exercices</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            height: 100vh;
+        }
+        .container {
+            width: 80%;
+            max-width: 800px;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            overflow-y: auto;
+            height: 90vh;
+        }
+        h1, h2 {
+            color: #0056b3;
+        }
+        code {
+            background-color: #eef;
+            padding: 2px 4px;
+            border-radius: 4px;
+            font-family: 'Source Code Pro', monospace;
+        }
+        pre {
+            background-color: #eef;
+            padding: 10px;
+            border-radius: 4px;
+            overflow-x: auto;
+            white-space: pre-wrap;
+            font-family: 'Source Code Pro', monospace;
+        }
+        section {
+            margin-bottom: 20px;
+        }
+        button {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 8px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        button:hover {
+            background: #0056b3;
+        }
+        .solution {
+            display: none;
+        }
+    </style>
+    <script>
+        function toggleSolution(id) {
+            var solution = document.getElementById(id);
+            if (solution.style.display === "none" || solution.style.display === "") {
+                solution.style.display = "block";
+            } else {
+                solution.style.display = "none";
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>Python Exercices</h1>
+
+        <section>
+            <h2>Exercice 4: Suivi des Employés</h2>
+            <p><b>Question :</b> Écrire un programme permettant de gérer une liste d’employés avec les informations suivantes :</p>
+            <ul>
+                <li><b>Nom</b></li>
+                <li><b>Poste</b></li>
+                <li><b>Salaire</b></li>
+            </ul>
+            <p><b>Instructions :</b></p>
+            <ol>
+                <li>Créer une fonction <code>initialiser_employes()</code> qui retourne une liste de dictionnaires contenant trois employés avec leur poste et salaire.</li>
+                <li>Créer une fonction <code>ajouter_employe(employes, nom, poste, salaire)</code> qui ajoute un nouvel employé à la liste.</li>
+                <li>Créer une fonction <code>augmenter_salaire(employes, nom, pourcentage)</code> qui augmente le salaire d’un employé d’un certain pourcentage.</li>
+                <li>Créer une fonction <code>employe_salaire_max(employes)</code> qui retourne le nom de l’employé avec le salaire le plus élevé.</li>
+            </ol>
+            <button onclick="toggleSolution('solution4')">Afficher/Masquer Solution</button>
+            <pre id="solution4" class="solution"><code>def initialiser_employes():
+    return [
+        {"nom": "Alice", "poste": "Développeur", "salaire": 4000},
+        {"nom": "Bob", "poste": "Designer", "salaire": 3500},
+        {"nom": "Charlie", "poste": "Chef de projet", "salaire": 5000}
+    ]
+
+def ajouter_employe(employes, nom, poste, salaire):
+    employes.append({"nom": nom, "poste": poste, "salaire": salaire})
+
+def augmenter_salaire(employes, nom, pourcentage):
+    for employe in employes:
+        if employe["nom"] == nom:
+            employe["salaire"] += employe["salaire"] * (pourcentage / 100)
+
+def employe_salaire_max(employes):
+    max_salaire = 0
+    employe_max = ""
+    for employe in employes:
+        if employe["salaire"] > max_salaire:
+            max_salaire = employe["salaire"]
+            employe_max = employe["nom"]
+    return employe_max , max_salaire</code></pre>
+        </section>
+
+        <section>
+         <h2>Exercice 5: Gestion des Comptes Bancaires</h2>
+         <p><b>Question :</b> Écrire un programme pour gérer une liste de comptes bancaires contenant :</p>
+         <ul>
+             <li><b>Nom du titulaire</b></li>
+             <li><b>Solde</b></li>
+             <li><b>Historique des transactions</b></li>
+         </ul>
+         <p><b>Instructions :</b></p>
+         <ol>
+             <li>Créer une fonction <code>initialiser_comptes()</code> qui retourne une liste contenant trois comptes bancaires avec un solde initial et une liste vide pour l'historique des transactions.</li>
+             <li>Créer une fonction <code>effectuer_retrait(comptes, nom, montant)</code> qui permet de retirer de l'argent d'un compte. Si le solde devient négatif après le retrait, la transaction doit être refusée.</li>
+             <li>Créer une fonction <code>effectuer_depot(comptes, nom, montant)</code> qui permet de déposer de l'argent sur un compte. Le solde doit être mis à jour et l'historique des transactions doit être enregistré.</li>
+             <li>Créer une fonction <code>historique_transactions(comptes, nom)</code> qui retourne l’historique des transactions d’un compte donné.</li>
+         </ol>
+         <button onclick="toggleSolution('solution5')">Afficher/Masquer Solution</button>
+         <pre id="solution5" class="solution"><code>
+     def initialiser_comptes():
+         return [
+             {"titulaire": "Jean", "solde": 1500, "transactions": []},
+             {"titulaire": "Sophie", "solde": 2500, "transactions": []},
+             {"titulaire": "Marc", "solde": 500, "transactions": []}
+         ]
+     
+     def effectuer_retrait(comptes, nom, montant):
+         for compte in comptes:
+             if compte["titulaire"] == nom:
+                 if compte["solde"] >= montant:  # Vérifier si le solde est suffisant pour le retrait
+                     compte["solde"] -= montant  # Retirer le montant du solde
+                     compte["transactions"].append(-montant)  # Ajouter le retrait à l'historique des transactions
+                     print(f"Retrait de {montant} effectué.")
+                 else:
+                     print("Transaction refusée : solde insuffisant.")
+     
+     def effectuer_depot(comptes, nom, montant):
+         for compte in comptes:
+             if compte["titulaire"] == nom:
+                 compte["solde"] += montant  # Ajouter le montant au solde
+                 compte["transactions"].append(montant)  # Ajouter le dépôt à l'historique des transactions
+                 
+     
+     def historique_transactions(comptes, nom):
+         for compte in comptes:
+             if compte["titulaire"] == nom:
+                 return compte["transactions"]
+         </code></pre>
+     </section>
+     
+    </div>
+</body>
+</html>
